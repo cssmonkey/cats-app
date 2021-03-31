@@ -3,9 +3,6 @@
   "plugins": ["import", "react", "prettier", "@typescript-eslint"],
   "extends": ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   "rules": {
-    "prettier/prettier": "error",
-    "@typescript-eslint/explicit-module-boundary-types": {
-      "allowDirectConstAssertionInArrowFunctions": true
-    }
+    "prettier/prettier": "error"
   }
 }

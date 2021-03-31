@@ -11,4 +11,19 @@ export const upload = (file: string) => {
   };
 };
 
-export type ImageUploadActions = ReturnType<typeof upload>;
+export const uploadSuccess = () => {
+  return <const>{
+    type: ACTION_TYPES.UPLOAD_SUCCESS,
+  };
+};
+
+export const uploadError = () => {
+  return <const>{
+    type: ACTION_TYPES.UPLOAD_ERROR,
+  };
+};
+
+export type ImageUploadActions =
+  | ReturnType<typeof upload>
+  | ReturnType<typeof uploadSuccess>
+  | ReturnType<typeof uploadError>;

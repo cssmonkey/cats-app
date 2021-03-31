@@ -1,4 +1,3 @@
-import { History, createBrowserHistory } from "history";
 import { applyMiddleware, compose, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
 
@@ -10,8 +9,6 @@ declare global {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
   }
 }
-
-export const history: History = createBrowserHistory();
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware();
