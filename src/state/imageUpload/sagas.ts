@@ -6,12 +6,17 @@ import apiConfig, { SUB_ID } from "../../api/apiConfig";
 
 import { ACTION_TYPES, upload } from "./actions";
 
-function* handleImageUpload({ file }: ReturnType<typeof upload>) {
+function* handleImageUpload({ image }: ReturnType<typeof upload>) {
   try {
+    const formData = new FormData();
+    formData.append("file", image.file as File, image.file?.name);
+    formData.append("sub_id", SUB_ID);
+
     const response: AxiosResponse = yield call(ApiService.callApi, {
       url: apiConfig.endpoints.uploadImage,
       method: "POST",
-      data: { file, sub_id: SUB_ID },
+      headers: { "Content-Type": "multipart/form-data" },
+      data: formData,
     });
 
     yield put({

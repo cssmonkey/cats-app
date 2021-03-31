@@ -2,8 +2,9 @@ import { ACTION_TYPES, upload, uploadSuccess, uploadError } from "./actions";
 
 describe("imageUpload actions", () => {
   it("upload action", () => {
-    const result = upload("filestring");
-    expect(result).toEqual({ type: ACTION_TYPES.UPLOAD, file: "filestring" });
+    const myImage = { file: new File([""], "filename") };
+    const result = upload(myImage);
+    expect(result).toEqual({ type: ACTION_TYPES.UPLOAD, image: myImage });
   });
   it("upload success action", () => {
     const result = uploadSuccess();
