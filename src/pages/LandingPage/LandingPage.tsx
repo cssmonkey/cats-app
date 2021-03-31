@@ -4,7 +4,7 @@ import PageContainer from "../../components/PageContainer/PageContainer";
 
 const LandingPage: FC = () => (
   <PageContainer>
-    <p>LandingPage</p>
+    <h2>Landing page</h2>
   </PageContainer>
 );
 

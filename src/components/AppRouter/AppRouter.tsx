@@ -1,14 +1,10 @@
 import React, { FC } from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import { History, createBrowserHistory } from "history";
 
 import ROUTES from "../../constants/routes";
 
 import LandingPage from "../../pages/LandingPage/LandingPage";
 import UploadPage from "../../pages/UploadPage/UploadPage";
-
-const history: History = createBrowserHistory();
-
 interface Page {
   path: string;
   component: FC;

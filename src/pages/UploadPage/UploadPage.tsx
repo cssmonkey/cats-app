@@ -4,7 +4,7 @@ import PageContainer from "../../components/PageContainer/PageContainer";
 
 const UploadPage: FC = () => (
   <PageContainer>
-    <p>UploadPage</p>
+    <h2>Upload image</h2>
   </PageContainer>
 );
 

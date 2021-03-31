@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 
 import ROUTES from "../../constants/routes";
 
+import "./navigation.css";
+
 const Navigation: FC = () => {
   const activeClassName = "selected";
   return (
