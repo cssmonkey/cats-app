@@ -1,13 +1,26 @@
-import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { History, createBrowserHistory } from "history";
+import { applyMiddleware, compose, createStore } from "redux";
+import createSagaMiddleware from "redux-saga";
 
-export const store = configureStore({
-  reducer: {},
-});
+import rootReducer from "./rootReducer";
+import rootSaga from "./rootSaga";
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
+export const history: History = createBrowserHistory();
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const sagaMiddleware = createSagaMiddleware();
+const enhancer = composeEnhancer(applyMiddleware(sagaMiddleware));
+
+const configureStore = () => {
+  const store = createStore(rootReducer, {}, enhancer);
+  sagaMiddleware.run(rootSaga);
+  return store;
+};
+
+export default configureStore();
