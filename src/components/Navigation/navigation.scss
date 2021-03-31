@@ -1,0 +1,39 @@
+$navigation-link-color: #303846 !default;
+$navigation-link-selected-color: #303846 !default;
+$navigation-link-hover-color: #f7a600 !default;
+
+.navigation-list {
+  margin: 0 -0.5rem;
+  &__item {
+    display: block;
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navigation-list {
+    display: flex;
+  }
+}
+
+.navigation-link {
+  color: $navigation-link-color;
+  transition: color 0.2s ease-out;
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $navigation-link-hover-color;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+
+  &.selected {
+    text-decoration: underline;
+    color: $navigation-link-selected-color;
+  }
+}
