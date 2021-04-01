@@ -19,7 +19,7 @@ describe("LandingPage", () => {
           <LandingPage />
         </MemoryRouter>
       ),
-      initialState: state,
+      state,
     });
 
     const heading = getByText("Landing page");
@@ -42,7 +42,7 @@ describe("LandingPage", () => {
           <LandingPage />
         </MemoryRouter>
       ),
-      initialState: state,
+      state,
     });
 
     const errorMessage = getByText("Sorry something loading your images, please try again");

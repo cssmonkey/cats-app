@@ -1,6 +1,7 @@
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
 
+import { initialState } from "../../state/imageUpload/reducers";
 import UploadPage from "./UploadPage";
 import renderConnected from "../../utilities/test/renderConnected";
 
@@ -12,6 +13,9 @@ describe("UploadPage", () => {
           <UploadPage />
         </MemoryRouter>
       ),
+      state: {
+        imageUpload: initialState,
+      },
     });
 
     const heading = getByText("Upload image");
