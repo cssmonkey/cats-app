@@ -6,7 +6,7 @@ import apiConfig, { SUB_ID } from "../../api/apiConfig";
 
 import { ACTION_TYPES, upload } from "./actions";
 
-function* handleImageUpload({ image }: ReturnType<typeof upload>) {
+function* handleImageUpload({ image, onSuccessCallback }: ReturnType<typeof upload>) {
   try {
     const formData = new FormData();
     formData.append("file", image.file as File, image.file?.name);
@@ -23,6 +23,7 @@ function* handleImageUpload({ image }: ReturnType<typeof upload>) {
       type: ACTION_TYPES.UPLOAD_SUCCESS,
       payload: response.data,
     });
+    yield call(onSuccessCallback);
   } catch (error) {
     yield put({
       type: ACTION_TYPES.UPLOAD_ERROR,

@@ -4,6 +4,7 @@ export const SUB_ID = "user_12345";
 
 export default {
   endpoints: {
+    fetchImages: `${API_BASE_URL}/images`,
     uploadImage: `${API_BASE_URL}/images/upload`,
   },
 };
