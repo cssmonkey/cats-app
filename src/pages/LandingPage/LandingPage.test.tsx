@@ -32,7 +32,7 @@ describe("LandingPage", () => {
     const state = {
       catsListing: {
         ...initialState,
-        catImages: [],
+        catImages: [{ url: "/image1.png", original_filename: "cat1.png" }],
         error: true,
       },
     };
