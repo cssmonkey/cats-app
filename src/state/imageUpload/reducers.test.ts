@@ -1,11 +1,12 @@
 import reducer, { initialState } from "./reducers";
 import { ACTION_TYPES } from "./actions";
 
-describe("User profile reducer", () => {
+describe("ImageUpload reducer", () => {
   it(ACTION_TYPES.UPLOAD, () => {
     const state = reducer(initialState, {
       type: ACTION_TYPES.UPLOAD,
-      file: "filestring",
+      image: { file: new File([""], "filename") },
+      onSuccessCallback: jest.fn(),
     });
     expect(state.loading).toBe(true);
     expect(state.error).toBe(false);

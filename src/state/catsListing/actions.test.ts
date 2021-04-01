@@ -1,17 +1,16 @@
-import { ACTION_TYPES, upload, uploadSuccess, uploadError } from "./actions";
+import { ACTION_TYPES, fetchImages, fetchImagesError, clearImages } from "./actions";
 
-describe("imageUpload actions", () => {
-  it("upload action", () => {
-    const myImage = { file: new File([""], "filename") };
-    const result = upload(myImage);
-    expect(result).toEqual({ type: ACTION_TYPES.UPLOAD, image: myImage });
+describe("catsListing actions", () => {
+  it("fetchImages action", () => {
+    const result = fetchImages();
+    expect(result).toEqual({ type: ACTION_TYPES.FETCH_IMAGES });
   });
-  it("upload success action", () => {
-    const result = uploadSuccess();
-    expect(result).toEqual({ type: ACTION_TYPES.UPLOAD_SUCCESS });
+  it("fetchImages error action", () => {
+    const result = fetchImagesError();
+    expect(result).toEqual({ type: ACTION_TYPES.FETCH_IMAGES_ERROR });
   });
-  it("upload error action", () => {
-    const result = uploadError();
-    expect(result).toEqual({ type: ACTION_TYPES.UPLOAD_ERROR });
+  it("clearImages action", () => {
+    const result = clearImages();
+    expect(result).toEqual({ type: ACTION_TYPES.CLEAR_IMAGES });
   });
 });

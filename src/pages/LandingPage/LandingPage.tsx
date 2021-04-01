@@ -36,10 +36,10 @@ const LandingPage: FC = () => {
     <PageContainer>
       <h2 className="text-2xl md:text-4xl font-sans font-black">Landing page</h2>
       <div className="cat-listing my-20">
-        {!hasCatListingError ? (
-          renderCatImagesList()
-        ) : (
+        {hasCatListingError ? (
           <ErrorMessage>Sorry something loading your images, please try again</ErrorMessage>
+        ) : (
+          renderCatImagesList()
         )}
       </div>
     </PageContainer>

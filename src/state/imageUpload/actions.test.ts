@@ -3,8 +3,9 @@ import { ACTION_TYPES, upload, uploadSuccess, uploadError } from "./actions";
 describe("imageUpload actions", () => {
   it("upload action", () => {
     const myImage = { file: new File([""], "filename") };
-    const result = upload(myImage);
-    expect(result).toEqual({ type: ACTION_TYPES.UPLOAD, image: myImage });
+    const onSuccessCallback = jest.fn();
+    const result = upload(myImage, onSuccessCallback);
+    expect(result).toEqual({ type: ACTION_TYPES.UPLOAD, image: myImage, onSuccessCallback });
   });
   it("upload success action", () => {
     const result = uploadSuccess();

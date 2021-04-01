@@ -4,7 +4,7 @@ import { getImageUploading, getImageUploadError } from "./selectors";
 const getState = (imageUploadSlice = {}) => {
   const appState = store.getState();
   return {
-    appState,
+    ...appState,
     imageUpload: {
       ...appState.imageUpload,
       ...imageUploadSlice,
