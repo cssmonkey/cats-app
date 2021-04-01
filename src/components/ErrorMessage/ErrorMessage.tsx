@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import "./error-message.css";
+import "./error-message.scss";
 
 interface ErrorMessageProps {
   children: JSX.Element[] | JSX.Element | string;

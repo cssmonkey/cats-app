@@ -1,0 +1,30 @@
+.navigation-list {
+  margin: 0 -0.5rem;
+  &__item {
+    display: block;
+    padding: 0.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .navigation-list {
+    display: flex;
+  }
+}
+.navigation-link {
+  color: #303846;
+  transition: color 0.2s ease-out;
+  &:focus,
+  &:hover,
+  &:active {
+    color: #f7a600;
+  }
+  &:focus,
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+  &.selected {
+    text-decoration: underline;
+    color: #303846;
+  }
+}

@@ -7,7 +7,7 @@ import { getImageUploading, getImageUploadError } from "../../state/imageUpload/
 
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
-import "./image-uploader.css";
+import "./image-uploader.scss";
 
 interface ImageUploaderProps {
   onImageUploadSuccess: () => void;
