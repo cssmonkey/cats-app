@@ -1,10 +1,14 @@
-import React, { FC } from "react";
+import React, { FC, lazy, Suspense } from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 import ROUTES from "../../constants/routes";
 
 import LandingPage from "../../pages/LandingPage/LandingPage";
-import UploadPage from "../../pages/UploadPage/UploadPage";
+
+const UploadPage = lazy(() =>
+  import(/* webpackChunkName: "UploadPage" */ "../../pages/UploadPage/UploadPage")
+);
+
 interface Page {
   path: string;
   component: FC;
@@ -26,12 +30,14 @@ const pages: Array<Page> = [
 
 const AppRouter: FC = () => (
   <BrowserRouter>
-    <Switch>
-      {pages.map(({ path, component, exact }) => (
-        <Route key={path} path={path} component={component} exact={exact} />
-      ))}
-      <Route component={() => <p>Page not found</p>} />
-    </Switch>
+    <Suspense fallback={() => <p>Loading...</p>}>
+      <Switch>
+        {pages.map(({ path, component, exact }) => (
+          <Route key={path} path={path} component={component} exact={exact} />
+        ))}
+        <Route component={() => <p>Page not found</p>} />
+      </Switch>
+    </Suspense>
   </BrowserRouter>
 );
 

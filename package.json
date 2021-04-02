@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
-    "build": "rimraf dist && webpack --config webpack.prod.js",
+    "build": "rimraf dist && NODE_ENV=production webpack --config webpack.prod.js",
     "test": "jest --env=jsdom",
     "test:coverage": "jest --coverage",
     "lint": "eslint . --ext .ts,.tsx",

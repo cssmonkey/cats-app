@@ -5,7 +5,7 @@ const common = require("./webpack.common.js");
 
 module.exports = (env = {}) => {
   return merge(common(env), {
-    mode: "production",
+    mode: process.env.NODE_ENV,
     devtool: "source-map",
     output: {
       filename: "[name].[chunkhash].js",
